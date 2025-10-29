@@ -30,7 +30,7 @@ Tradeoffs: Using a few 3rd party packages:
 ## Desicions
 I decided to not use any 3rd party like Material-UI, so all the homebrewed components could probably look a little better (Especially popup)
 
-##Future Improvements:
+## Future Improvements:
 Stop container of PDF from shifting when loading or changing pages initially
 
 Make the Pop Up look better
