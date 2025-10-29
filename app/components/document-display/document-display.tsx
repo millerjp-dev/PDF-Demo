@@ -31,8 +31,6 @@ export const DocumentDisplay: React.FC<DocumentDisplayProps> = ({documents, titl
     const {agreementsSubject} = useContext(UserAgreementContext);
     const [userAgreementValue, setAgreementValue] = useState(false)
 
-    
-
     const onLoadSuccess: OnDocumentLoadSuccess = ({numPages}) => {
         setMaxPage(numPages);
     }

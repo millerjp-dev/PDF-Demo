@@ -1,10 +1,8 @@
 'use client';
 import React, { useEffect, useRef, useState } from "react";
 import { DocumentDisplay } from "../document-display/document-display";
-import { Card } from "../card/card";
 import { UserAgreementProvider } from "../user-agreement/user-agreement-provider";
 import { UserAgreement } from "../user-agreement/user-agreement";
-import { PopupContext } from "../popup/popup-context";
 import { PopupProvider } from "../popup/popup-provider";
 import { Popup } from "../popup/popup";
 
