@@ -42,7 +42,7 @@ export const Form : React.FC = () => {
                         if (!val.changesOnly) {
                                 documents.current[val.type].fileNames.original = 'documents/' +val.fileName;
                         } else {
-                            documents.current[val.type].fileNames.changes = 'documents/' + val.fileName;
+                            documents.current[val.type].fileNames.changes = 'documentsf/' + val.fileName;
                         }
                     })
                     setDocumentsState(documents.current);

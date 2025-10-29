@@ -6,10 +6,11 @@ import * as pdfjsLib from 'pdfjs-dist';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import { OnDocumentLoadSuccess, OnError } from "react-pdf/src/shared/types.js";
+import { Button } from "../button/button";
 
 export const PdfDisplay: React.FC = () => {
     const pdfContext = useContext(PdfContext);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<Error>();
 
     const handleLoadSuccess : OnDocumentLoadSuccess = (doc) => {
@@ -26,22 +27,23 @@ export const PdfDisplay: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        setLoading(false);
+        setLoading(true);
         setError(undefined);
     }, [pdfContext.name])
 
     return (
-        <div style={{height: '500px', minWidth: '300px'}}>
-            {loading && <p>Loading PDF...</p>}
+        <div style={{height: '500px', minWidth: '300px', position: 'relative'}}>
             {error && <p>Error loading PDF: {error.message}</p>}
-            {!loading && !error && (
-            <Document
+            {!error && (
+            <div><Document
                 file={pdfContext.document}
                 onLoadSuccess={handleLoadSuccess}
                 onLoadError={handleError}
             >
                 <Page height={500} pageNumber={pdfContext.pageNumber} />
             </Document>
+            <div style={{position: 'absolute', top: '-30px', right: '0'}}><Button disabled={loading || error} onClick={()=> {window.open(pdfContext.document, '_blank')}}>Download</Button></div>
+            </div>
             )}
         </div>
     )
