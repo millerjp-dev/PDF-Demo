@@ -26,11 +26,14 @@ Tradeoffs: Using a few 3rd party packages:
 
 "rxjs": "^7.8.2"
   Used for Subjects to easily connect distant/multiple components
+  
+"@mui/icons-material": "^7.3.4",
+  Icons for styling
+
 
 ## Desicions
-I decided to not use any 3rd party like Material-UI, so all the homebrewed components could probably look a little better (Especially popup)
+While I did use Material Icons, I decided to not use any 3rd party like Material-UI for components
+I tried to make this component as expandable as possible, so it should be able to accept more types of documents without modification.
 
 ## Future Improvements:
 Stop container of PDF from shifting when loading or changing pages initially
-
-Make the Pop Up look better
