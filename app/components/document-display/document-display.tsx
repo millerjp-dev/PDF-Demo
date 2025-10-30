@@ -11,6 +11,8 @@ import { Select } from "../select/select";
 import { useTranslation } from "@/app/utilities/useTranslation";
 import { Card } from "../card/card";
 import { UserAgreementContext } from "../user-agreement/user-agreement-context";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 dynamic<{ inline?: boolean }>(
   () => import('../document-display/pdf-display').then(mod => mod.PdfDisplay),
@@ -58,17 +60,17 @@ export const DocumentDisplay: React.FC<DocumentDisplayProps> = ({documents, titl
             <PdfContext.Provider value={{onLoadSuccess, document: currentVersion === 'changes' && documents.changes ? documents.changes : documents.original, pageNumber, name: currentVersion === 'changes' ? 'changes' : 'original'}} >
                 <PdfDisplay />
             </PdfContext.Provider>
-            
+            <div style={{height: '10px'}}/>
             <div style={{justifyContent: 'space-between', display: 'flex'}}>
-                <Button disabled={pageNumber === 1} onClick={() => setPageNumber(page => Math.max(page - 1, 1))}>Back</Button>
+                <Button disabled={pageNumber === 1} onClick={() => setPageNumber(page => Math.max(page - 1, 1))}><NavigateBeforeIcon /></Button>
                 {Object.keys(documents).length > 1 && (
                     <Select value={currentVersion} options={Object.keys(documents)} onChange={(val) => setCurrentVersion(val)} />
                 )}
-                <Button disabled={(maxPage || 1) <= pageNumber} onClick={() => setPageNumber(page => Math.min(page + 1, maxPage || 1))}>Next</Button>
+                <Button disabled={(maxPage || 1) <= pageNumber} onClick={() => setPageNumber(page => Math.min(page + 1, maxPage || 1))}><NavigateNextIcon /></Button>
             </div>
-            <div style={{height: '20px'}}/>
+            <div style={{height: '10px'}}/>
             <Checkbox onChange={setAgreementValue} disabled={!reachedEnd}>I have read and agree</Checkbox>
-            <div style={{height: '20px'}}/>
+            <div style={{height: '10px'}}/>
         </Card>
         
     )

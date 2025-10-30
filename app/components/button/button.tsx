@@ -5,8 +5,8 @@ import styled from "@emotion/styled";
 const StyledButton = styled.button<{small?: boolean}>`
     box-shadow : 0 4px 8px 0 rgba(0,0,0,0.2);
     transition : 0.3s;
-    padding: ${({small}) => (small ? '2px' : '8px')};
-    margin: ${({small}) => (small ? '2px' : '4px')};
+    padding: ${({small}) => (small ? '0px' : '8px')};
+    margin: ${({small}) => (small ? '0px' : '4px')};
     width: fit-content;
     ${({small}) => small ? `height: fit-content;` : ''}
     border-radius: ${({small}) => (small ? '6px' : '10px')};;

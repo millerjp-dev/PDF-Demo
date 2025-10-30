@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import { PopupContext } from "./popup-context";
+import CloseIcon from '@mui/icons-material/Close';
 
 const WarningPopUpContainer = styled.div<{visible: boolean}>`
     width: 100vw;
@@ -22,7 +23,7 @@ const WarningPopUpContainer = styled.div<{visible: boolean}>`
 const WarningPopUp = styled.div`
     width: fit-content;
     background: white;
-    padding: 4px;
+    padding: 12px;
     border-radius: 10px;
     white-space:pre-wrap;
     pointer-events: auto;
@@ -57,7 +58,7 @@ export const Popup : React.FC = () => {
             <WarningPopUp>
                 <Header>
                     <h3>{title}</h3>
-                    <Button small onClick={() => setIsOpen(false)}>X</Button>
+                    <Button small onClick={() => setIsOpen(false)}><CloseIcon fontSize="small" /></Button>
                 </Header>
                 {content}
             </WarningPopUp>

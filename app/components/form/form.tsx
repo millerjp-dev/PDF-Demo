@@ -42,7 +42,7 @@ export const Form : React.FC = () => {
                         if (!val.changesOnly) {
                                 documents.current[val.type].fileNames.original = 'documents/' +val.fileName;
                         } else {
-                            documents.current[val.type].fileNames.changes = 'documentsf/' + val.fileName;
+                            documents.current[val.type].fileNames.changes = 'documents/' + val.fileName;
                         }
                     })
                     setDocumentsState(documents.current);
@@ -57,7 +57,7 @@ export const Form : React.FC = () => {
     return (
         <div>
             <PopupProvider>
-                <div style={{display: 'flex'}}>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
                 <UserAgreementProvider submissionArray={submissionArray}>
                     {Object.keys(documentsState).map((key) => (
                         <DocumentDisplay key={key} documents={documentsState[key].fileNames} title={key} />
