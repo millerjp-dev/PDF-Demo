@@ -9,7 +9,7 @@ export const UserAgreementProvider: React.FC<{children: ReactNode, submissionArr
     const agreementsSubject = useRef(new Subject<{id: string, val: boolean}>());
 
     useEffect(() => {
-        agreementsSubject.current.subscribe((change) => {
+        const sub = agreementsSubject.current.subscribe((change) => {
             setDisagreements((di) => {
                 const index = di.indexOf(change.id)
                 if (!change.val) {
@@ -24,6 +24,7 @@ export const UserAgreementProvider: React.FC<{children: ReactNode, submissionArr
                 return di;
             })
         })
+        return () => { sub.unsubscribe(); }
     }, []);
     
     return (

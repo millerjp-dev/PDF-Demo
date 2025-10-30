@@ -35,11 +35,12 @@ export const Popup : React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        popupSubject.subscribe((val) => {
+        const sub = popupSubject.subscribe((val) => {
             setTitle(val.title);
             setContent(val.content);
             setIsOpen(true);
         })
+        return () => { sub.unsubscribe(); }
     }, [])
 
     return (
