@@ -33,6 +33,7 @@ Tradeoffs: Using a few 3rd party packages:
 
 ## Desicions
 While I did use Material Icons, I decided to not use any 3rd party like Material-UI for components
+I tried to make this component as expandable as possible, so it should be able to accept more types of documents without modification.
 
 ## Future Improvements:
 Stop container of PDF from shifting when loading or changing pages initially
