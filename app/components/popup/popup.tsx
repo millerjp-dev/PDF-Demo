@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import { PopupContext } from "./popup-context";
 import CloseIcon from '@mui/icons-material/Close';
+import { Card } from "../card/card";
 
 const WarningPopUpContainer = styled.div<{visible: boolean}>`
     width: 100vw;
@@ -21,20 +22,9 @@ const WarningPopUpContainer = styled.div<{visible: boolean}>`
     
 `
 const WarningPopUp = styled.div`
-    width: fit-content;
-    background: white;
-    padding: 12px;
-    border-radius: 10px;
     white-space:pre-wrap;
     pointer-events: auto;
     z-index: 101;
-`
-const Header = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px black;
 `
 
 export const Popup : React.FC = () => {
@@ -46,7 +36,6 @@ export const Popup : React.FC = () => {
 
     useEffect(() => {
         popupSubject.subscribe((val) => {
-            console.log('works?')
             setTitle(val.title);
             setContent(val.content);
             setIsOpen(true);
@@ -56,11 +45,12 @@ export const Popup : React.FC = () => {
     return (
         <WarningPopUpContainer visible={isOpen}>
             <WarningPopUp>
-                <Header>
-                    <h3>{title}</h3>
+                <Card title={title}>
+                <div style={{position: 'absolute', top: '10px', right: '10px'}}>
                     <Button small onClick={() => setIsOpen(false)}><CloseIcon fontSize="small" /></Button>
-                </Header>
+                </div>
                 {content}
+                </Card>                
             </WarningPopUp>
         </WarningPopUpContainer>
     )

@@ -44,7 +44,7 @@ export const UserAgreement : React.FC = () => {
 
     const handleClick = () => {
         if (disagreements.length > 0) {
-            popupSubject.next({title: 'Form Incomplete', content: `Please fully read and agree to the following original documents:\n` + disagreements.map((val) => translate(val)).join(`\n`)});
+            popupSubject.next({title: 'Form Incomplete', content: `Please fully read and agree to the following documents:\n \u2022 ` + disagreements.map((val) => translate(val)).join(`\n \u2022 `)});
         } else {
             popupSubject.next({title: 'Form Submitted!', content: `Thank you`});
             submitToServer();

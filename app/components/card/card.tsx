@@ -10,6 +10,8 @@ const StyledCard = styled.div`
     width: fit-content;
     border-radius: 10px;
     background: rgba(243, 243, 243, 1);
+    white-space:pre-wrap;
+    position: relative;
     :hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }

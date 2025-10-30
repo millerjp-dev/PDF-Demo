@@ -57,7 +57,7 @@ export const Form : React.FC = () => {
     return (
         <div>
             <PopupProvider>
-                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 <UserAgreementProvider submissionArray={submissionArray}>
                     {Object.keys(documentsState).map((key) => (
                         <DocumentDisplay key={key} documents={documentsState[key].fileNames} title={key} />
